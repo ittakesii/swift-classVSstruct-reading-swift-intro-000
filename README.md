@@ -44,9 +44,13 @@ fred.weight = 999.2
 fred.homePlanet = "Mars"
 ```
 
+no, because homePlanet is a let constant
+
 ### Question 2
 
 Can you fix the class definition above so that it _does_ work?
+
+yes change homePlanet to "var"
 
 ### Question 3
 
@@ -68,6 +72,8 @@ let bilbo = Alien(name: "Bilbo", height: 1.67, homePlanet: "Venus")
 
 Will these three lines of code run? If so, why not?
 
+no because bilbo is a let constant
+
 ```swift
 bilbo.name = "Jake"
 bilbo.height = 1.42
@@ -77,6 +83,8 @@ bilbo.homePlanet = "Saturn"
 ### Question 4
 
 Can you change the declaration of `bilbo` so that the above three lines of code _do_ work?
+
+yes change it to var bilbo
 
 ### Question 5
 
@@ -90,6 +98,8 @@ jason.name = "Jason"
 
 What will the value of `edgar.name` be after those three lines of code are run? What will the value of `jason.name` be? Why?
 
+both will be equal to "Jason" because they reference the same class
+
 ### Question 6
 
 Given this bit of code that uses the `Alien` struct:
@@ -101,6 +111,8 @@ charlesFromJupiter.homePlanet = "Jupiter"
 ```
 
 What will the value of `charles.homePlanet` be after the above code run? What about the value of `charlesFromJupiter.homePlanet`? Why?
+
+charles.homePlanet will be "Pluto" and charlesFromHupiter.homePlanet will be "Jupiter" because they reference different copies of the struct Alien
 
 ### Question 7
 
@@ -123,9 +135,13 @@ struct BankAccount {
 
 Does this code work? Why or why not?
 
+no, because the struct is immutable
+
 ### Question 8
 
 Can you fix the `BankAccount` struct so it _does_ work?
+
+yes, add the "mutating" term in front of each method, so "mutating func deposit(_:)" for example
 
 ### Question 9
 
@@ -138,6 +154,8 @@ joeAccount.withdraw(50.0)
 ```
 
 What will the value of `joeAccount.balance` be after the above code runs? What about the value of `joeOtherAccount.balance`? Why?
+
+joeAccount.balance will be 50 and joeOtherAccount.balance will be 100 because joeOtherAccount is still referencing the original unmutated copy of joeAccount
 
 ### Question 10
 
@@ -168,5 +186,9 @@ library2.add(track: "Come As You Are")
 ```
 
 After this code runs, what are the contents of `library1.tracks`? What about the contents of `library2.tracks`? Why?
+
+library1.tracks = ["Michelle", "Voodoo Child", "Come As You Are"]
+
+library2.tracks = ["Michelle", "Voodoo Child", "Come As You Are"]
 
 <a href='https://learn.co/lessons/ClassesVsStructs' data-visibility='hidden'>View this lesson on Learn.co</a>
